@@ -1,0 +1,40 @@
+
+PLAY [Lab 8] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [myvmlab.senecapolytechnic.ca]
+
+TASK [Apache] ******************************************************************
+ok: [myvmlab.senecapolytechnic.ca]
+
+TASK [EPEL] ********************************************************************
+ok: [myvmlab.senecapolytechnic.ca]
+
+TASK [Tree] ********************************************************************
+ok: [myvmlab.senecapolytechnic.ca]
+
+TASK [Hostname] ****************************************************************
+ok: [myvmlab.senecapolytechnic.ca]
+
+TASK [New user w/ sen id] ******************************************************
+ok: [myvmlab.senecapolytechnic.ca]
+
+TASK [Check if .ssh directory exists for new user] *****************************
+changed: [myvmlab.senecapolytechnic.ca]
+
+TASK [Copy .ssh key for new user to use] ***************************************
+changed: [myvmlab.senecapolytechnic.ca]
+
+TASK [Directories] *************************************************************
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab1)
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab2)
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab3)
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab4)
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab5)
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab6)
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab7)
+changed: [myvmlab.senecapolytechnic.ca] => (item=lab8)
+
+PLAY RECAP *********************************************************************
+myvmlab.senecapolytechnic.ca : ok=9    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
