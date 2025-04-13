@@ -1,0 +1,2 @@
+[ops445]
+myvmlab.senecapolytechnic.ca ansible_user=student ansible_port=7323 ansible_password=B:lG43u+hi
