@@ -1,0 +1,71 @@
+---
+- name: Lab 8
+  hosts: all
+  become: yes
+
+  vars:
+    user: "ltthomas2"
+    labs:
+      - lab1
+      - lab2
+      - lab3
+      - lab4
+      - lab5
+      - lab6
+      - lab7
+      - lab8
+
+  tasks:
+    - name: Apache
+      yum:
+        name: httpd
+        state: latest
+
+    - name: EPEL
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Tree
+      yum:
+        name: tree
+        state: absent
+
+    - name: Hostname
+      hostname:
+        name: "{{ user }}"
+
+    - name: New user w/ sen id
+      user:
+        name: "{{ user }}"
+        comment: "User for {{ user }}"
+        state: present
+        shell: /bin/bash
+        groups: wheel
+
+    - name: Check if .ssh directory exists for new user
+      file:
+        path: "/home/{{ user }}/.ssh"
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: '0700'
+
+    - name: Copy .ssh key for new user to use
+      copy:
+        src: "/home/student/.ssh/authorized_keys"
+        dest: "/home/{{ user }}/.ssh/authorized_keys"
+        remote_src: yes
+        owner: "{{ user }}"
+        group: "{{ user }}"
+        mode: '0600'
+
+    - name: Directories
+      file:
+        path: "/home/{{ user }}/ops445/{{ item }}"
+        state: directory
+        mode: '0755'
+        owner: "{{ user }}"
+        group: "{{ user }}"
+      loop: "{{ labs }}"
+
